@@ -13,7 +13,7 @@ public class BreadthFirstSearch2_maze {
 	static int[] y= new int[100];
 	static int[] l= new int[100];
 	
-	//큐에 좌표 정보와 길이를 삽입하는 함수
+	//큐에 좌표 정보와 거리를 삽입하는 함수
 	static void enqueue(int _x, int _y, int _l){
 		x[cnt] = _x;
 		y[cnt] = _y;
@@ -32,6 +32,7 @@ public class BreadthFirstSearch2_maze {
 		
 		//시작점의 좌표 정보와 길이를 큐에 삽입
 		enqueue(_x, _y, 1);
+		
 		//더 이상 방문할 지점이 없거나, 도작 지점이 도착하면 루프를 탈출한다.
 		while(pos < cnt && (x[pos] != n-1 || y[pos] != n-1)){
 			//두 번 방문하게 하면 안되므로, 이미 지나가면 표시

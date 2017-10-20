@@ -26,16 +26,17 @@ public class BreadthFirstSearch {
 		System.out.println(v+"에서 시작");
 		
 		queue[rear++] = v; //큐에 v를 삽입하고 후단을 1 증가시킴
-		while(front < rear){ //후단과 전담이 같거나 작으면 반복 탈출
-			
-			//큐의 첫 번째에 있는 데이터를 제외하고 제외된 값을 가져오며, 전단 1증가
+		while(front < rear){ //후단과 전단이 같거나 작으면 반복 탈출
+
+			//큐의 첫 번째에 있는 데이터를 가져오고 전단을 1증가하여 제외시킴
 			v = queue[front++];
 			for(i = 0; i<=n;i++){
 				//정점 v와 정점 i가 만나고, 정점 i를 방문하지 않은 상태일 경우
+				//(큐에서 제외된 값(v)와 연결되어 있고 아직 방문하지 않는 정점을 방문
 				if(map[v][i] == 1 && visit[i] != 1){
 					visit[i] = 1; //정점 i를 방문
 					System.out.println(v+"에서 "+i+"로 이동");
-					queue[rear++] = i; //큐에 i를 삽입하고 후단을 1 증가시킴
+					queue[rear++] = i; //큐에 i를 삽입하고 후단을 1 증가시킴 (i로 이동하였으니까 i를 큐에 삽입)
 				}
 			}
 		}
@@ -45,12 +46,16 @@ public class BreadthFirstSearch {
 		int v1,v2;
 		n = 6;
 		start = 1;
-		
+		int[] test = {1,2,1,3,2,4,2,5,3,4,3,6,4,5,4,6,5,6,-1,-1};
 		Scanner sc = new Scanner(System.in);
 		
+		int index = 0;
 		while(true){
-			v1 = sc.nextInt();
-			v2 = sc.nextInt();
+			//v1 = sc.nextInt();
+			//v2 = sc.nextInt();
+			v1 = test[index];
+			v2 = test[index+1];
+			index = index + 2;
 			if(v1 == -1 && v2 == -1) break;
 			map[v1][v2] = map[v2][v1] = 1;
 			

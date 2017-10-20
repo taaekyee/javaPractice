@@ -1,0 +1,47 @@
+package javaPractice;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class prac9_ioByte {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		FileInputStream fis = null;
+		FileOutputStream fos = null;
+		
+		try {
+			fis = new FileInputStream("src/javaPractice/prac9_ioByte.java");
+			fos = new FileOutputStream("byte.txt");
+			
+			//읽어들이는 수 체크
+			int readData = -1;
+			
+			while((readData = fis.read())!=-1){
+				fos.write(readData);
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			try {
+				fos.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				fis.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+}

@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class DepthFirstSearch2_maze {
 
+	static int[] dx = {-1,0,1,0};
+	static int[] dy = {0,-1,0,1};
+	
 	static int n, min; //맵의 크기와 최소값을 저장할 변수
 	static int[][] map = null;
 	//= new int[10][10]; //맵
@@ -18,16 +21,27 @@ public class DepthFirstSearch2_maze {
 			return;
 		}
 		map[y][x] = 0; //방문했음을 표시
-		//위로 이동할 수 있다면 이동
+/*		//위로 이동할 수 있다면 이동
 		if(y>0 && map[y-1][x] != 0) DFS(x,y-1,l+1);
 		//아래로 이동할 수 있다면 이동
 		if(y<n-1 && map[y+1][x] != 0) DFS(x, y+1,l+1);
 		//왼쪽으로 이동할 수 있다면 이동
 		if(x>0 && map[y][x-1] != 0) DFS(x-1,y,l+1);
 		//오른쪽으로 이동할 수 있다면 이동
-		if(x<n-1 && map[y][x+1] != 0) DFS(x+1,y,l+1);
+		if(x<n-1 && map[y][x+1] != 0) DFS(x+1,y,l+1);*/
+		
+		for(int i=0;i<4;i++){
+			int nextx = x + dx[i];
+			int nexty = y + dy[i];
+			
+			if(nextx<0 || nextx>=n || nexty<0 || nexty>=n) continue;
+			
+			if(map[nexty][nextx]!=0) DFS(nextx,nexty,l+1);
+			
+		}
 		
 		map[y][x] = 1; //지나간 자리를 원상태로 되돌림
+		
 	}
 	
 	public static void main(String[] args) {
