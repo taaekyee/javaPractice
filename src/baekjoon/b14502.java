@@ -20,8 +20,9 @@ public class b14502 {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt();
-		M = sc.nextInt();		
+		//N = sc.nextInt();
+		//M = sc.nextInt();
+		N=7;M=7;
 		map = new int[N][M];		
 		
 		int k = 0;
@@ -50,14 +51,14 @@ public class b14502 {
 			for(int j=0;j<M;j++){
 				//map[i][j] = sc.nextInt();
 				map[i][j] = sample[k++];
-				if(map[i][j] == WALL) nWall++;
+				if(map[i][j] == WALL) nWall++; //벽의 개수 저장
 			}
 		}
 		
 		// solve
         int[] wallPos = new int[ADDWALL];
         combination(wallPos, 0, 0, N * M, ADDWALL);
-
+        
         System.out.println(safetyMaxArea);
 		
 	}
@@ -74,7 +75,8 @@ public class b14502 {
 		if(target == n){
 			return; // N*M번 반복하면 리턴
 		}
-		System.out.println(target/M+" "+target%M);
+		//System.out.println(target/M+" "+target%M);
+		
 		//벽을 세울 수 있는 위치에만
 		if(map[target / M][target % M] == BLANK){
 			arr[depth] = target; 

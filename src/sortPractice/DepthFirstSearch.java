@@ -15,7 +15,7 @@ public class DepthFirstSearch {
 	static int[][] map = new int[30][30]; //인접행렬
 	static int[] visit = new int[30]; //방문 여부
 	
-	static void DFS(int v){
+/*	static void DFS(int v){
 		int i;
 		
 		visit[v] = 1; //정점 v를 방문
@@ -27,6 +27,20 @@ public class DepthFirstSearch {
 				DFS(i);
 			}
 		}
+	}*/
+	static void DFS(int v){
+		int i;
+		
+		visit[v] = 1; //방문 표시
+		for(i = 1;i<=n;i++){
+			//v와 i가 연결되어있고 => map[v][i] == 1
+			//i를 방문하지 않았다면 => visit[i] != 1
+			if(map[v][i] == 1 && visit[i] != 1){
+				System.out.println(v+"에서 "+i+"로 이동");
+				DFS(i); //정점 i에서 다시 불러옴
+			}
+		}
+		
 	}
 	public static void main(String[] args) {
 		int start; //시작 정점

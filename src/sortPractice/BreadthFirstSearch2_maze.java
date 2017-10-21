@@ -13,7 +13,7 @@ public class BreadthFirstSearch2_maze {
 	static int[] y= new int[100];
 	static int[] l= new int[100];
 	
-	//큐에 좌표 정보와 거리를 삽입하는 함수
+	//큐에 좌표 정보와 거리를 삽입하는 함수 -> l은 (x,y)에 도달하기 까지 걸리는 거리
 	static void enqueue(int _x, int _y, int _l){
 		x[cnt] = _x;
 		y[cnt] = _y;

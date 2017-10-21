@@ -19,7 +19,7 @@ public class BreadthFirstSearch {
 	static int[] queue = new int[30];
 	static int[] visit = new int[30];
 	
-	static void BFS(int v){
+/*	static void BFS(int v){
 		int i = 0;
 		
 		visit[v] = 1; //정점 v를 방문
@@ -39,6 +39,22 @@ public class BreadthFirstSearch {
 					queue[rear++] = i; //큐에 i를 삽입하고 후단을 1 증가시킴 (i로 이동하였으니까 i를 큐에 삽입)
 				}
 			}
+		}
+	}*/
+	static void BFS(int v){
+		visit[v] = 1;
+		
+		queue[rear++] = v;
+		while(front<rear){
+			v = queue[front++];
+			for(int i = 0 ;i<=n;i++){
+				if(map[v][i] ==1 &&visit[i]==0){
+					visit[i]=1;
+					System.out.println(v+"에서 "+i+"로 이동");
+					queue[rear++]=i;
+				}
+			}
+			
 		}
 	}
 	public static void main(String[] args) {

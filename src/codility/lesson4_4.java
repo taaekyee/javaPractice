@@ -20,9 +20,9 @@ public class lesson4_4 {
 		for(int i = 0;i<B.length;i++){
 			if(B[i]<max) B[i]=max;
 		}
-		for(int i = 0;i<B.length;i++){
-			System.out.println(B[i]);
-		}
+//		for(int i = 0;i<B.length;i++){
+//			System.out.println(B[i]);
+//		}
 				
 		return B;
 	}
