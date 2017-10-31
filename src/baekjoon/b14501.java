@@ -19,21 +19,29 @@ public class b14501 {
 			p[i] = sc.nextInt();
 		}
 		
-		for(int i = 2; i<=days;i++){
+		/*for(int i = 2; i<=days;i++){
 			for(int j = 1;j<i;j++){
 				if(i-j>=t[j]) dp[i] = Math.max(p[j]+dp[j],dp[i]);
 				System.out.print(dp[i]+ " ");
 			}
 			System.out.println();
 		}
+		*/
 		
+		for(int i = 2;i<=days;i++){
+			for(int j=1;j<i;j++){
+				if(i-j>=t[j]) dp[i] = Math.max(dp[j]+p[j], dp[i]);
+			}
+		}
 		int result = 0;
 		for(int i =0;i<=days;i++){
 			if(result<dp[i]) result = dp[i];
 			//System.out.println(dp[i]);
 		}
+
 		
-		//System.out.println(result);
+		
+		System.out.println(result);
 	}
 }
 

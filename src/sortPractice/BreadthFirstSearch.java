@@ -1,6 +1,7 @@
 package sortPractice;
 
 import java.util.Scanner;
+import java.util.*;
 
 public class BreadthFirstSearch {
 
@@ -18,6 +19,8 @@ public class BreadthFirstSearch {
 	static int map[][] = new int[30][30];
 	static int[] queue = new int[30];
 	static int[] visit = new int[30];
+	
+	static Queue<Integer> q = new LinkedList<>();
 	
 /*	static void BFS(int v){
 		int i = 0;
@@ -43,19 +46,19 @@ public class BreadthFirstSearch {
 	}*/
 	static void BFS(int v){
 		visit[v] = 1;
-		
-		queue[rear++] = v;
-		while(front<rear){
-			v = queue[front++];
-			for(int i = 0 ;i<=n;i++){
-				if(map[v][i] ==1 &&visit[i]==0){
-					visit[i]=1;
+		System.out.println(v+"에서 시작");
+		q.offer(v);
+		while(!q.isEmpty()){
+			v = q.poll();
+			for(int i = 0 ; i <n;i++){
+				if(map[v][i]==1 && visit[i]!=1){
+					visit[i] = 1 ;
 					System.out.println(v+"에서 "+i+"로 이동");
-					queue[rear++]=i;
+					q.offer(i);
 				}
 			}
-			
 		}
+
 	}
 	public static void main(String[] args) {
 		int start; //시작 정점

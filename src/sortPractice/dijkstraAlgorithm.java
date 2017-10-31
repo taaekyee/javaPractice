@@ -62,9 +62,9 @@ public class dijkstraAlgorithm {
 						min_index = i;
 					}
 				}
-				System.out.print(distance[i]+" ");
+//				System.out.print(distance[i]+" ");
 			}
-			
+
 			//중간결과 출력
 			for(int i = 1;i<n+1;i++){
 //				System.out.print(distance[i]+" ");
@@ -72,19 +72,21 @@ public class dijkstraAlgorithm {
 			System.out.println();
 			
 			check[min_index] = true;
+			System.out.println(min_index);
 			for(int i = 1; i < n+1; i++){
+				System.out.print(distance[i]+" ");
 				if(!check[i] && map[min_index][i] != 0){
 					if(distance[i] > distance[min_index]+map[min_index][i]){
 						distance[i] = distance[min_index]+map[min_index][i];
 					}
 				}
-				System.out.print(distance[i]+" ");
+				System.out.println(distance[i]+" ");
 			}
 			System.out.println();
 		}
 		//결과값 출력
 		for(int i = 1;i<n+1;i++){
-			System.out.print(distance[i]+" ");
+//			System.out.print(distance[i]+" ");
 		}
 		System.out.println();
 	}

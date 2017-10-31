@@ -1,6 +1,6 @@
 package baekjoon;
 
-import java.util.Arrays;
+import java.util.*;
 import java.util.Scanner;
 
 public class b14502 {
@@ -67,7 +67,7 @@ public class b14502 {
 	static void combination(int[] arr, int depth, int target, int n, int k){
 		//벽을 다 세우면
 		if(depth == k){
-			commitMap(arr); //map에 벽을 적용
+			commitMap(arr); //map에 벽을 적용	
 			findSaftyArea(); //안전장소 탐색
 			rollbackMap(arr); //원래로 복귀
 			return;
